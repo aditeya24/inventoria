@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrowed Item Details</title>
+    <link rel="stylesheet" href="ReturnItem.css">
+</head>
+<body>
+
+<header>
+    <img src="path/to/profile-picture.jpg" alt="User profile" width="50" height="50">
+    <button type="button">Back</button>
+</header>
+
+<main>
+    <div class="item-details-card">
+        <img src="path/to/image-placeholder.png" alt="Item Image Placeholder" width="200" height="200">
+        <h3>Item Name</h3>
+        <p><strong>Catergory</strong></p>
+        <p>description of the item</p>
+    </div>
+
+    <div class="availability-card">
+        <h2>100</h2>
+        <p>Amount Available</p>
+    </div>
+
+    <div class="borrow-action-section">
+        <label for="borrowAmount">Amount :</label><br><br>
+        <textarea id="borrowAmount" name="borrowAmount" rows="3" placeholder="Number of item borrowed"></textarea>
+        <button type="button">Borrow</button>
+    </div>
+</main>
+<script src="ReturnItem.ts"></script>
+</body>
+</html>

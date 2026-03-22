@@ -1,0 +1,145 @@
+/* --- Base Mobile Setup --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding-bottom: 40px;
+}
+
+/* --- Header Section --- */
+header {
+    display: flex;
+    justify-content: space-between; /* Pushes profile to left, button to right */
+    align-items: center;
+    padding: 20px;
+}
+
+header img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #000; /* Adds the dark ring seen in the mockup */
+}
+
+header button {
+    background-color: #e62e2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* --- Main Layout --- */
+main {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Consistent spacing between the vertical cards */
+}
+
+/* --- Item Details Card --- */
+.item-details-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.item-details-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.item-details-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+
+.item-details-card p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+.item-details-card p strong {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.item-details-card p:last-child {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* --- Availability Card --- */
+.availability-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.availability-card h2 {
+    margin: 0 0 5px 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.availability-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* --- Borrow Action Form --- */
+.borrow-action-section {
+    display: grid;
+    grid-template-areas:
+        "label label"
+        "input button";
+    grid-template-columns: 1fr auto;
+    gap: 10px 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Hide the raw HTML line breaks so Grid can handle the layout natively */
+.borrow-action-section br {
+    display: none;
+}
+
+.borrow-action-section label {
+    grid-area: label;
+    font-size: 14px;
+    color: #333;
+}
+
+.borrow-action-section textarea {
+    grid-area: input;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: none; /* Prevents the user from breaking the layout by dragging the corner */
+    outline: none;
+}
+
+.borrow-action-section button {
+    grid-area: button;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    cursor: pointer;
+}
