@@ -3,13 +3,16 @@ type Props = {
     onBorrow: (id: string) => void;
 }
 
-export default function ItemCard({item, onBorrow}: Props ) {
+export default function ItemCard({item, onBorrow}: Props) {
     return (
         <div>
             <p>{item.name}</p>
-            <p>{item.availableQuantity}</p>
+            <p>{item.available_quantity}</p>
 
-            <button onClick={() => onBorrow(item.id)}>
+            <button 
+                onClick={() => onBorrow(item.id)}
+                disabled={item.available_quantity === 0}
+            >
                 Borrow
             </button>
         </div>
