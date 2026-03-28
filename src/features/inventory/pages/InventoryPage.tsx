@@ -52,12 +52,14 @@ export default function InventoryPage() {
     }
 
     return (
-        <div>
-            <h1>Inventory Page</h1>
+        <div className="p-4">
+            <h1 className="text-xl font-semibold mb-4">Inventory Page</h1>
 
-            {items.map((item) => (
-                <ItemCard key={item.id} item={item} onBorrow={handleBorrow} loading={borrowingID === item.id} />
-            ))}
+            <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(220px,300px))] justify-center">
+                {items.map((item) => (
+                    <ItemCard key={item.id} item={item} onBorrow={handleBorrow} loading={borrowingID === item.id} />
+                ))}
+            </div>
         </div>
     );
 }
