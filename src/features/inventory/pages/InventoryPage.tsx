@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { inventoryService } from "../../../services/inventoryService";
 import { borrowServices } from "../../../services/borrowService";
 import ItemCard from "../components/ItemCard";
+import SkeletonCard from "../components/SkeletonCard";
 
 export default function InventoryPage() {
     const [items, setItems] = useState<any[]>([]);
@@ -47,19 +48,23 @@ export default function InventoryPage() {
         }
     }
 
-    if (loading) {
-        return <p>Loading...</p>
-    }
-
     return (
         <div className="p-4">
             <h1 className="text-xl font-semibold mb-4">Inventory Page</h1>
 
-            <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(220px,300px))] justify-center">
-                {items.map((item) => (
-                    <ItemCard key={item.id} item={item} onBorrow={handleBorrow} loading={borrowingID === item.id} />
-                ))}
+            { loading ? (
+                <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(220px,300px))] justify-center">
+            {Array.from({ length: 8 }).map((_, i) => (
+                <SkeletonCard key={i} />
+            ))}
             </div>
+            ) : (
+                <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(220px,300px))] justify-center">
+                    {items.map((item) => (
+                        <ItemCard key={item.id} item={item} onBorrow={handleBorrow} loading={borrowingID === item.id} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
