@@ -9,13 +9,45 @@ type BorrowPanelProps = {
     onReturn: (quantity: number) => void;
 };
 
+type Mode = "borrow" | "return";
+
 export function BorrowPanel({ maxQuantity, onBorrow, onReturn }: BorrowPanelProps) {
 
     const [quantity, setQuantity] = useState(1);
+    const [mode, setMode] = useState<Mode>("borrow");
+
+    function handleAction() {
+        if (mode === "borrow") {
+            onBorrow(quantity);
+        } else {
+            onReturn(quantity);
+        }
+    }
 
     return (
         <Card>
             <CardContent className="p-4 space-y-4">
+
+                {/* Mode Toggle */}
+                <div className="flex gap-2">
+                    <Button
+                        variant={mode === "borrow" ? "default" : "secondary"}
+                        className="flex-1"
+                        onClick={() => setMode("borrow")}
+                    >
+                        Borrow
+                    </Button>
+
+                    <Button
+                        variant={mode === "return" ? "default" : "secondary"}
+                        className="flex-1"
+                        onClick={() => setMode("return")}
+                    >
+                        Return
+                    </Button>
+                </div>
+
+                {/* Quantity Input */}
                 <div className="space-y-2">
                     <label className="text-sm text-muted-foreground">
                         Quantity
@@ -29,25 +61,16 @@ export function BorrowPanel({ maxQuantity, onBorrow, onReturn }: BorrowPanelProp
                         onChange={(e) => setQuantity(Number(e.target.value))}
                     />
                 </div>
+
             </CardContent>
 
-            <CardFooter className="flex gap-2">
-
+            <CardFooter>
                 <Button
-                    className="flex-1"
-                    onClick={() => onBorrow(quantity)}
+                    className="w-full"
+                    onClick={handleAction}
                 >
-                    Borrow
+                    {mode === "borrow" ? "Confirm Borrow" : "Confirm Return"}
                 </Button>
-
-                <Button
-                    // variant="secondary"
-                    className="flex-1"
-                    onClick={() => onReturn(quantity)}
-                >
-                    Return
-                </Button>
-
             </CardFooter>
         </Card>
     );
