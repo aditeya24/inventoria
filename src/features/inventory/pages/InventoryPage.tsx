@@ -17,7 +17,6 @@ export function InventoryPage() {
         setLoading(true)
         try {
             const data = await inventoryService.getAllComponents();
-            console.log("items:", data);
             setItems(data);
         } catch (err) {
             console.error("failed loading", err);
@@ -25,18 +24,18 @@ export function InventoryPage() {
         setLoading(false)
     }
 
-    async function handleBorrow(id: string) {
+    async function handleBorrow(id: string, quantity:number) {
         try {
             setBorrowingID(id);
 
-            await borrowServices.checkoutItem(id, "d0f05595-daed-492f-8cad-301938ac8c09", 1);
+            await borrowServices.checkoutItem(id, "d0f05595-daed-492f-8cad-301938ac8c09", quantity);
 
             setItems( prev =>
                 prev.map( item => 
                     item.id === id
                     ? {
                         ...item,
-                        available_quantity: item.available_quantity - 1
+                        available_quantity: Math.max(0, item.available_quantity - quantity)
                     }
                     : item
                 )
