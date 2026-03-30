@@ -21,7 +21,7 @@ export default function QuantitySelector({value, onChange, min = 1, max = 999}: 
                 <RiSubtractLine />
             </Button>
 
-            <ButtonGroupText className="min-w-10 justify-center">
+            <ButtonGroupText className="min-w-8 md:min-w-10 justify-center">
                 {value}
             </ButtonGroupText>
 
