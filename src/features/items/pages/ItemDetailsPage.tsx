@@ -59,6 +59,12 @@ export default function ItemDetailsPage() {
 
             <BorrowPanel
                 maxQuantity={item.available_quantity}
+                onBorrow={(qty) => {
+                    console.log("Borrow quantity:", qty);
+                }}
+                onReturn={(qty) => {
+                    console.log("Return quantity:", qty);
+                }}
             />
 
         </div>
