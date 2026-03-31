@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../../../contexts/AuthContext';
-import { borrowService } from 'src/services/borrowService';
+import { borrowService } from '../../../services/borrowService';
 
 export function useBorrow() {
   // Grab the logged-in student's ID directly from your new Dome
