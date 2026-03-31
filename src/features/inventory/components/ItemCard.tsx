@@ -25,8 +25,8 @@ export default function ItemCard({item, onBorrow, loading}: Props) {
         <Card className="relative w-full pt-0">
             <div onClick={() => navigate(`${item.id}`)} className="absolute inset-0 z-30 aspect-video bg-black/35 cursor-pointer" />
             <img
-                src="https://avatar.vercel.sh/shadcn1"
-                alt="Event cover"
+                src={ item.image_url || "https://avatar.vercel.sh/shadcn1" }
+                alt={ item.name}
                 className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
             />   
             <CardHeader>
