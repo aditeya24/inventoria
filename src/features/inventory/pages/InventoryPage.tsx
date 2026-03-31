@@ -4,7 +4,7 @@ import { borrowServices } from "../../../services/borrowService";
 import ItemCard from "../components/ItemCard";
 import SkeletonCard from "../components/SkeletonCard";
 
-export default function InventoryPage() {
+export function InventoryPage() {
     const [items, setItems] = useState<any[]>([]);
     const [borrowingID, setBorrowingID] = useState<string | null>(null);
     const [loading, setLoading] = useState(true)
