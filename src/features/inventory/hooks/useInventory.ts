@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// Note: Adjust this import path to wherever your inventory database fetcher lives!
 import { inventoryService } from '../../../services/inventoryService'; 
 
 export function useInventory() {
