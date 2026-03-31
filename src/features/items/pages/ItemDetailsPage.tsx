@@ -5,21 +5,12 @@ import { ItemHeader } from "../components/ItemHeader";
 import { ItemStats } from "../components/ItemStats";
 import { BorrowPanel } from "../components/BorrowPanel";
 
-type Item = {
-    id: string;
-    name: string;
-    total_quantity: number;
-    available_quantity: number;
-    category?: string;
-    description?: string;
-    image_url?: string;
-};
 
 export default function ItemDetailsPage() {
 
     const { id } = useParams();
 
-    const [item, setItem] = useState<Item | null>(null);
+    const [item, setItem] = useState<any | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
