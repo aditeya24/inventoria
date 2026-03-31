@@ -10,7 +10,7 @@ type Item = {
     name: string;
     total_quantity: number;
     available_quantity: number;
-    location?: string;
+    category?: string;
     description?: string;
     imageUrl?: string;
 };
@@ -53,7 +53,7 @@ export default function ItemDetailsPage() {
             <ItemStats
                 availableQuantity={item.available_quantity}
                 totalQuantity={item.total_quantity}
-                location={item.location}
+                category={item.category}
                 description={item.description}
             />
 

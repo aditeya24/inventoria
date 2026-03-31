@@ -3,14 +3,14 @@ import { Card, CardContent } from "@/components/ui/card";
 type ItemStatsProps = {
     availableQuantity: number;
     totalQuantity: number;
-    location?: string;
+    category?: string;
     description?: string;
 };
 
 export function ItemStats({
     availableQuantity,
     totalQuantity,
-    location,
+    category,
     description,
 }: ItemStatsProps) {
     return (
@@ -24,8 +24,8 @@ export function ItemStats({
                 </div>
 
                 <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Location</span>
-                    <span className="font-medium">{location ?? "—"}</span>
+                    <span className="text-muted-foreground">Category</span>
+                    <span className="font-medium">{category ?? "—"}</span>
                 </div>
 
                 <div className="space-y-1 text-sm">
