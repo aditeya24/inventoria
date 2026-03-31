@@ -25,7 +25,7 @@ function ProtectedRoute({children}: {children: React.ReactNode}) {
     checkInitialLogin();
 
     // To create a new session, in case user logs out
-    const listener = supabase.auth.onAuthStateChange((event, newSession) => {
+    const listener = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession);
     });
 
