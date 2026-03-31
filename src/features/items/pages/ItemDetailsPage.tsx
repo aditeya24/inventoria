@@ -12,7 +12,7 @@ type Item = {
     available_quantity: number;
     category?: string;
     description?: string;
-    imageUrl?: string;
+    image_url?: string;
 };
 
 export default function ItemDetailsPage() {
@@ -35,7 +35,13 @@ export default function ItemDetailsPage() {
     }, [id]);
 
     if (loading) {
-        return <div className="p-6">Loading item...</div>;
+        return (
+            <div className="container mx-auto px-4 py-6 max-w-4xl space-y-6">
+                <div className="aspect-video w-full bg-muted animate-pulse rounded-lg" />
+                <div className="h-6 w-1/2 bg-muted animate-pulse rounded" />
+                <div className="h-4 w-1/3 bg-muted animate-pulse rounded" />
+            </div>
+        );
     }
 
     if (!item) {
@@ -47,7 +53,7 @@ export default function ItemDetailsPage() {
 
             <ItemHeader
                 name={item.name}
-                imageUrl={item.imageUrl}
+                imageUrl={item.image_url}
             />
 
             <ItemStats

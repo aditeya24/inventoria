@@ -12,7 +12,7 @@ export function ItemHeader({ name, imageUrl }: ItemHeaderProps) {
                 <div className="aspect-video w-full overflow-hidden rounded-md bg-muted">
                     {imageUrl ? (
                         <img
-                            src={imageUrl}
+                            src={imageUrl || "https://avatar.vercel.sh/shadcn1"}
                             alt={name}
                             className="h-full w-full object-cover"
                         />
