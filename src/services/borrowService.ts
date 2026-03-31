@@ -2,7 +2,7 @@ import { supabase } from "./supabase";
 import type { Transactions } from "../types";
 import { keysToCamel, keysToSnake } from "../utils/caseConverter"; 
 
-export const borrowService = {
+export const borrowServices = {
     // === The Checkout Logic ===
     async checkoutItem(componentId: string, userId: string, quantity: number = 1): Promise<Transactions> {
         
